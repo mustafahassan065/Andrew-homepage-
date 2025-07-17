@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Carol - Personal Trainer & Online Fitness Coach</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, 
+                rgba(101, 67, 33, 0.9) 0%, 
+                rgba(139, 69, 19, 0.8) 25%, 
+                rgba(160, 82, 45, 0.7) 50%, 
+                rgba(210, 180, 140, 0.6) 75%, 
+                rgba(245, 222, 179, 0.5) 100%),
+                url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .earth-gradient {
+            background: linear-gradient(135deg, 
+                #8B4513 0%, 
+                #CD853F 25%, 
+                #DEB887 50%, 
+                #F5DEB3 75%, 
+                #FFF8DC 100%);
+        }
+        
+        .forest-gradient {
+            background: linear-gradient(135deg, 
+                #228B22 0%, 
+                #32CD32 25%, 
+                #9ACD32 50%, 
+                #ADFF2F 75%, 
+                #F0FFF0 100%);
+        }
+        
+        .floating-animation {
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-animation:nth-child(2) {
+            animation-delay: -2s;
+        }
+        
+        .floating-animation:nth-child(3) {
+            animation-delay: -4s;
+        }
+        
+        .floating-animation:nth-child(4) {
+            animation-delay: -6s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-40px) rotate(0deg); }
+            75% { transform: translateY(-20px) rotate(-5deg); }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1.2s ease-out;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1.2s ease-out;
+        }
+        
+        .slide-in-up {
+            animation: slideInUp 1.5s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-150px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(150px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .pulse-earth {
+            animation: pulseEarth 3s infinite;
+        }
+        
+        @keyframes pulseEarth {
+            0%, 100% { 
+                box-shadow: 0 0 0 0 rgba(139, 69, 19, 0.8);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 0 30px rgba(139, 69, 19, 0);
+                transform: scale(1.05);
+            }
+        }
+        
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-morph {
+            backdrop-filter: blur(20px);
+            background: rgba(139, 69, 19, 0.15);
+            border: 1px solid rgba(245, 222, 179, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .text-shadow-strong {
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+        }
+        
+        .reveal-animation {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .reveal-animation.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .service-card {
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-style: preserve-3d;
+        }
+        
+        .service-card:hover {
+            transform: rotateY(10deg) rotateX(5deg) translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+        
+        .rotating-slow {
+            animation: rotateGentle 25s linear infinite;
+        }
+        
+        @keyframes rotateGentle {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #8B4513, #CD853F, #DEB887);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .breathing-animation {
+            animation: breathe 4s ease-in-out infinite;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .wave-animation {
+            animation: wave 2s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-20deg); }
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            display: none;
+        }
+        
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 0 0 0 20px;
+            z-index: 100;
+            width: 70%;
+            max-width: 300px;
+        }
+        
+        .mobile-menu a {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            z-index: 101;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        @media (max-width: 1024px) {
+            /* Adjustments for tablets */
+            h1 {
+                font-size: 5rem !important;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons button {
+                width: 100%;
+                max-width: 350px;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Adjustments for mobile */
+            h1 {
+                font-size: 3.5rem !important;
+                line-height: 1.2;
+            }
+            
+            h2 {
+                font-size: 2.5rem !important;
+            }
+            
+            p, li {
+                font-size: 1.1rem !important;
+            }
+            
+            .hero-content {
+                padding-top: 100px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .contact-info div {
+                width: 100%;
+            }
+            
+            /* Show hamburger menu on mobile */
+            .desktop-nav {
+                display: none !important;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            /* Adjust floating elements for mobile */
+            .floating-animation {
+                display: none;
+            }
+            
+            /* Adjust service cards */
+            .service-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Adjust about section */
+            .about-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Adjust testimonials */
+            .testimonial-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Form adjustments */
+            .form-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Footer adjustments */
+            .footer-icons {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            /* Button adjustments */
+            button {
+                padding: 12px 20px !important;
+                font-size: 1.1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Extra small devices */
+            h1 {
+                font-size: 2.5rem !important;
+            }
+            
+            h2 {
+                font-size: 2rem !important;
+            }
+            
+            .hero-buttons button {
+                padding: 12px !important;
+                font-size: 1rem !important;
+            }
+            
+            /* Adjust section padding */
+            section {
+                padding: 60px 20px !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Hero Section -->
+    <section class="relative min-h-screen hero-bg flex items-center justify-center">
+        <!-- Floating Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="floating-animation absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-amber-600 to-orange-700 rounded-full opacity-30 blur-xl"></div>
+            <div class="floating-animation absolute bottom-32 right-16 w-32 h-32 bg-gradient-to-br from-green-600 to-lime-700 rounded-full opacity-30 blur-xl"></div>
+            <div class="floating-animation absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-br from-yellow-600 to-amber-700 rounded-full opacity-30 blur-xl"></div>
+            <div class="floating-animation absolute bottom-1/4 left-1/4 w-28 h-28 bg-gradient-to-br from-orange-600 to-red-700 rounded-full opacity-30 blur-xl"></div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="absolute top-0 w-full z-50 p-6">
+            <div class="flex justify-between items-center max-w-7xl mx-auto">
+                <div class="text-3xl font-bold text-white text-shadow-strong">
+                    <span class="gradient-text">Andrew</span> Carol
+                </div>
+                <div class="desktop-nav hidden md:flex space-x-8">
+                    <a href="#services" class="text-lg hover:text-amber-400 transition-all duration-300 hover:scale-110">Services</a>
+                    <a href="#about" class="text-lg hover:text-amber-400 transition-all duration-300 hover:scale-110">About</a>
+                    <a href="#contact" class="text-lg hover:text-amber-400 transition-all duration-300 hover:scale-110">Contact</a>
+                </div>
+                <div class="hamburger md:hidden">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="mobile-menu">
+                    <a href="#services" class="text-lg hover:text-amber-400">Services</a>
+                    <a href="#about" class="text-lg hover:text-amber-400">About</a>
+                    <a href="#contact" class="text-lg hover:text-amber-400">Contact</a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center max-w-6xl mx-auto px-6 hero-content">
+            <h1 class="text-5xl sm:text-7xl md:text-9xl font-bold mb-6 sm:mb-8 slide-in-left text-shadow-strong">
+                Transform Your
+                <span class="gradient-text breathing-animation inline-block">Body & Soul</span>
+            </h1>
+            <p class="text-xl sm:text-2xl md:text-3xl mb-8 sm:mb-10 slide-in-right text-amber-100 font-medium">
+                Holistic fitness coaching rooted in earth's wisdom - building strength from the ground up
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center slide-in-up hero-buttons">
+                <button class="earth-gradient hover:scale-105 px-6 sm:px-10 py-3 sm:py-5 rounded-2xl text-xl sm:text-2xl font-bold transition-all duration-300 hover-lift pulse-earth text-white shadow-2xl">
+                    🌱 Start Your Journey
+                </button>
+                <button class="glass-morph px-6 sm:px-10 py-3 sm:py-5 rounded-2xl text-xl sm:text-2xl font-bold hover-lift text-amber-100 border-2 border-amber-400">
+                    💪 View Programs
+                </button>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-8 h-12 border-3 border-amber-400 rounded-full flex justify-center">
+                <div class="w-2 h-4 bg-amber-400 rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-16 sm:py-24 relative" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900/95 to-black/90"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-20 reveal-animation">
+                <h2 class="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 sm:mb-8 text-shadow-strong">
+                    <span class="gradient-text">Comprehensive</span> Fitness Solutions
+                </h2>
+                <p class="text-xl sm:text-2xl text-amber-100 font-medium max-w-3xl mx-auto">
+                    From corrective exercise to complete transformation - rooted in holistic wellness
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 sm:gap-10 service-grid">
+                <div class="service-card glass-morph p-6 sm:p-10 rounded-3xl reveal-animation hover-lift">
+                    <div class="text-5xl sm:text-6xl mb-4 sm:mb-6 text-amber-500 rotating-slow wave-animation">💪</div>
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 gradient-text">Personal Training</h3>
+                    <p class="text-lg sm:text-xl text-amber-100 mb-6 sm:mb-8 leading-relaxed">
+                        In-person sessions in Tampa with focus on corrective exercise, athletic training, and holistic body awareness
+                    </p>
+                    <div class="h-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
+                </div>
+                
+                <div class="service-card glass-morph p-6 sm:p-10 rounded-3xl reveal-animation hover-lift">
+                    <div class="text-5xl sm:text-6xl mb-4 sm:mb-6 text-green-500 rotating-slow wave-animation">🎯</div>
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 gradient-text">Online Coaching</h3>
+                    <p class="text-lg sm:text-xl text-amber-100 mb-6 sm:mb-8 leading-relaxed">
+                        Complete online programs with weekly check-ins, customized to your unique body and lifestyle needs
+                    </p>
+                    <div class="h-2 bg-gradient-to-r from-green-500 to-lime-500 rounded-full"></div>
+                </div>
+                
+                <div class="service-card glass-morph p-6 sm:p-10 rounded-3xl reveal-animation hover-lift">
+                    <div class="text-5xl sm:text-6xl mb-4 sm:mb-6 text-yellow-500 rotating-slow wave-animation">📋</div>
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 gradient-text">Self-Guided Programs</h3>
+                    <p class="text-lg sm:text-xl text-amber-100 mb-6 sm:mb-8 leading-relaxed">
+                        Structured programs for independent training, perfect for motivated individuals seeking guidance
+                    </p>
+                    <div class="h-2 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-16 sm:py-24 relative" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/90 to-gray-900/95"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid md:grid-cols-2 gap-10 sm:gap-16 items-center about-grid">
+                <div class="reveal-animation">
+                    <h2 class="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 sm:mb-8 text-shadow-strong">
+                        The <span class="gradient-text breathing-animation inline-block">Holistic</span> Approach
+                    </h2>
+                    <p class="text-lg sm:text-xl md:text-2xl text-amber-100 mb-6 sm:mb-8 leading-relaxed">
+                        With a background in athletic training, I understand that true fitness goes beyond just lifting weights. 
+                        I focus on the entire system - addressing weak spots like hips and ankles that most trainers overlook.
+                    </p>
+                    <p class="text-lg sm:text-xl md:text-2xl text-amber-100 mb-6 sm:mb-8 leading-relaxed">
+                        My approach is grounded in corrective exercise principles, bringing a fresh, progressive perspective to an industry 
+                        that often misses the bigger picture. I believe in building you up from the foundation.
+                    </p>
+                    <div class="earth-gradient hover:scale-105 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl inline-block hover-lift cursor-pointer text-white font-bold text-lg sm:text-xl shadow-2xl">
+                        🌿 Discover My Methods
+                    </div>
+                </div>
+                
+                <div class="relative reveal-animation">
+                    <div class="glass-morph p-6 sm:p-10 rounded-3xl hover-lift breathing-animation">
+                        <h3 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 gradient-text">Why Choose a Systems Approach?</h3>
+                        <ul class="space-y-4 sm:space-y-6 text-lg sm:text-xl text-amber-100">
+                            <li class="flex items-center hover:scale-105 transition-transform">
+                                <span class="text-2xl sm:text-3xl text-green-500 mr-3 sm:mr-4">🌱</span>
+                                Addresses root causes, not just symptoms
+                            </li>
+                            <li class="flex items-center hover:scale-105 transition-transform">
+                                <span class="text-2xl sm:text-3xl text-amber-500 mr-3 sm:mr-4">🛡️</span>
+                                Prevents injury through corrective exercise
+                            </li>
+                            <li class="flex items-center hover:scale-105 transition-transform">
+                                <span class="text-2xl sm:text-3xl text-blue-500 mr-3 sm:mr-4">🌊</span>
+                                Builds sustainable, long-term habits
+                            </li>
+                            <li class="flex items-center hover:scale-105 transition-transform">
+                                <span class="text-2xl sm:text-3xl text-purple-500 mr-3 sm:mr-4">🎯</span>
+                                Considers your entire lifestyle and goals
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="py-16 sm:py-24 relative" style="background-image: url('https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900/95 to-black/90"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-20 reveal-animation">
+                <h2 class="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 sm:mb-8 text-shadow-strong">
+                    <span class="gradient-text">Success</span> Stories
+                </h2>
+                <p class="text-xl sm:text-2xl text-amber-100 font-medium">
+                    Real transformations from real people
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 sm:gap-12 testimonial-grid">
+                <div class="glass-morph p-6 sm:p-10 rounded-3xl reveal-animation hover-lift">
+                    <div class="text-6xl sm:text-8xl text-amber-500 mb-4 sm:mb-6 opacity-80">"</div>
+                    <p class="text-lg sm:text-xl mb-6 sm:mb-8 text-amber-100 leading-relaxed">
+                        Andrew's holistic approach completely changed how I think about fitness. He didn't just give me exercises - 
+                        he taught me to understand my body as a connected system. My movement quality improved dramatically!
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full mr-4 sm:mr-6 flex items-center justify-center text-xl sm:text-2xl">👩</div>
+                        <div>
+                            <div class="text-xl sm:text-2xl font-bold gradient-text">Sarah M.</div>
+                            <div class="text-base sm:text-lg text-amber-400">Online Client</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-morph p-6 sm:p-10 rounded-3xl reveal-animation hover-lift">
+                    <div class="text-6xl sm:text-8xl text-green-500 mb-4 sm:mb-6 opacity-80">"</div>
+                    <p class="text-lg sm:text-xl mb-6 sm:mb-8 text-amber-100 leading-relaxed">
+                        Finally, a trainer who gets it! Andrew's focus on corrective exercise fixed issues I'd been dealing with for years. 
+                        His progressive approach and systems thinking made all the difference.
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-br from-green-500 to-lime-500 rounded-full mr-4 sm:mr-6 flex items-center justify-center text-xl sm:text-2xl">👨</div>
+                        <div>
+                            <div class="text-xl sm:text-2xl font-bold gradient-text">Mike T.</div>
+                            <div class="text-base sm:text-lg text-amber-400">In-Person Client</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 sm:py-24 relative" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/90 to-gray-900/95"></div>
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
+            <div class="reveal-animation">
+                <h2 class="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 sm:mb-8 text-shadow-strong">
+                    Ready to <span class="gradient-text breathing-animation inline-block">Transform</span>?
+                </h2>
+                <p class="text-xl sm:text-2xl text-amber-100 mb-12 sm:mb-16 leading-relaxed">
+                    Let's build a program that works for your body, your goals, and your life
+                </p>
+                
+                <div class="glass-morph p-6 sm:p-12 rounded-3xl mb-8 sm:mb-12 hover-lift">
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-10 gradient-text">Get Started Today</h3>
+                    <form class="space-y-6 sm:space-y-8">
+                        <div class="grid md:grid-cols-2 gap-6 sm:gap-8 form-grid">
+                            <input type="text" placeholder="Your Name" class="bg-black/50 border-2 border-amber-400/50 p-4 sm:p-6 rounded-2xl w-full focus:outline-none focus:ring-4 focus:ring-amber-400/50 focus:border-amber-400 text-lg sm:text-xl text-white placeholder-amber-200">
+                            <input type="email" placeholder="Your Email" class="bg-black/50 border-2 border-amber-400/50 p-4 sm:p-6 rounded-2xl w-full focus:outline-none focus:ring-4 focus:ring-amber-400/50 focus:border-amber-400 text-lg sm:text-xl text-white placeholder-amber-200">
+                        </div>
+                        <select class="bg-black/50 border-2 border-amber-400/50 p-4 sm:p-6 rounded-2xl w-full focus:outline-none focus:ring-4 focus:ring-amber-400/50 focus:border-amber-400 text-lg sm:text-xl text-white">
+                            <option>Select Service</option>
+                            <option>Personal Training (In-Person)</option>
+                            <option>Online Coaching</option>
+                            <option>Self-Guided Program</option>
+                        </select>
+                        <textarea placeholder="Tell me about your goals and any specific needs..." class="bg-black/50 border-2 border-amber-400/50 p-4 sm:p-6 rounded-2xl w-full h-32 sm:h-40 focus:outline-none focus:ring-4 focus:ring-amber-400/50 focus:border-amber-400 text-lg sm:text-xl text-white placeholder-amber-200 resize-none"></textarea>
+                        <button type="submit" class="earth-gradient hover:scale-105 px-8 sm:px-12 py-4 sm:py-6 rounded-2xl text-xl sm:text-2xl font-bold transition-all duration-300 hover-lift pulse-earth w-full text-white shadow-2xl">
+                            🚀 Start My Transformation
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-8 sm:space-y-0 sm:space-x-8 lg:space-x-16 mb-8 sm:mb-12 contact-info">
+                    <div class="text-center hover-lift">
+                        <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">📧</div>
+                        <div class="text-xl sm:text-2xl gradient-text font-bold">andrewcarol@gmail.com</div>
+                    </div>
+                    <div class="text-center hover-lift">
+                        <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">📍</div>
+                        <div class="text-xl sm:text-2xl text-amber-100 font-bold">Tampa, FL</div>
+                    </div>
+                    <div class="text-center hover-lift">
+                        <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">📞</div>
+                        <div class="text-xl sm:text-2xl text-amber-100 font-bold">+1 978-995-8587</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-black py-8 sm:py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+            <div class="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">
+                <span class="gradient-text">Andrew</span> Carol
+            </div>
+            <p class="text-lg sm:text-xl text-amber-400 mb-6 sm:mb-8">Personal Trainer & Online Fitness Coach</p>
+            <div class="flex justify-center space-x-6 sm:space-x-8 footer-icons">
+                <div class="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full hover-lift cursor-pointer flex items-center justify-center text-xl sm:text-2xl">📘</div>
+                <div class="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-br from-green-500 to-lime-500 rounded-full hover-lift cursor-pointer flex items-center justify-center text-xl sm:text-2xl">📷</div>
+                <div class="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full hover-lift cursor-pointer flex items-center justify-center text-xl sm:text-2xl">🐦</div>
+            </div>
+            <div class="mt-6 sm:mt-8 text-amber-200 text-sm sm:text-base">
+                This is just a demo homepage design I can build complete website as per your requirements
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Enhanced scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all reveal elements
+        document.querySelectorAll('.reveal-animation').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Enhanced form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            // Loading state
+            button.innerHTML = '🔄 Sending...';
+            button.disabled = true;
+            button.classList.add('animate-pulse');
+            
+            // Simulate submission
+            setTimeout(() => {
+                button.innerHTML = '✅ Message Sent!';
+                button.classList.remove('animate-pulse');
+                button.classList.add('bg-green-600');
+                
+                // Reset after success
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    button.classList.remove('bg-green-600');
+                    this.reset();
+                }, 3000);
+            }, 2000);
+        });
+        
+        // Enhanced parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero-bg');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+        
+        // Dynamic particle system
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'absolute w-2 h-2 bg-amber-400 rounded-full opacity-60';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.animation = `float ${Math.random() * 4 + 3}s ease-out forwards`;
+            
+            const heroSection = document.querySelector('.hero-bg');
+            if (heroSection) {
+                heroSection.appendChild(particle);
+                
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.remove();
+                    }
+                }, 7000);
+            }
+        }
+        
+        // Create particles
+        setInterval(createParticle, 3000);
+        
+        // Add mouse movement effect
+        document.addEventListener('mousemove', (e) => {
+            const floating = document.querySelectorAll('.floating-animation');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            floating.forEach((element, index) => {
+                const speed = (index + 1) * 0.02;
+                const x = (mouseX - 0.5) * speed * 100;
+                const y = (mouseY - 0.5) * speed * 100;
+                element.style.transform += ` translate(${x}px, ${y}px)`;
+            });
+        });
+        
+        // Add typing effect for hero text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+        
+        // Initialize typing effect after page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const heroTitle = document.querySelector('h1');
+                if (heroTitle) {
+                    const originalText = heroTitle.textContent;
+                    typeWriter(heroTitle, originalText, 80);
+                }
+            }, 1000);
+        });
+        
+        // Add glowing effect on hover for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 0 30px rgba(139, 69, 19, 0.8)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
+            });
+        });
+        
+        // Enhanced scroll animations
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            // Parallax for background elements
+            const parallaxElements = document.querySelectorAll('.floating-animation');
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.3 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+        
+        // Add ripple effect on click
+        document.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            ripple.style.left = e.clientX + 'px';
+            ripple.style.top = e.clientY + 'px';
+            
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+        
+        // Add CSS for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            .ripple {
+                position: fixed;
+                border-radius: 50%;
+                background: rgba(139, 69, 19, 0.6);
+                transform: scale(0);
+                animation: ripple-animation 0.6s linear;
+                pointer-events: none;
+                z-index: 9999;
+            }
+            
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
